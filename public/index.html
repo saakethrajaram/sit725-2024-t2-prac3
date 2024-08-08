@@ -1,99 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIT 725 Prac 3</title>
-    <meta name="description" content="basic template for SIT 725 Prac 3">
-    <meta name="author" content="SitePoint">
-    <meta property="og:title" content="SIT 725 Prac 3">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saaketh's Phone Exhibition</title>
+    <meta name="description" content="Explore the latest phones and make inquiries about your favorite products.">
+    <meta name="author" content="Saaketh Rajaram K">
+    <meta property="og:title" content="Saaketh's Phone Exhibition">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="basic template for SIT 725 Prac 3">
-    <!-- Compiled and minified CSS -->
+    <meta property="og:description" content="A professional phone exhibition page with product inquiry.">
+    <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Custom Style Sheet-->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background: #121212;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #1f1f1f;
+        }
+        .brand-logo img {
+            height: 60px;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            color: #fff;
+        }
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .card {
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+        .card .card-image img {
+            border-radius: 15px 15px 0 0;
+        }
+        .card-content {
+            padding: 20px;
+            color: #e0e0e0;
+        }
+        .card-content a {
+            color: #bb86fc;
+        }
+        .card-reveal {
+            background: #2c2c2c;
+        }
+        .modal {
+            background: #2c2c2c;
+            color: #e0e0e0;
+            border-radius: 10px;
+        }
+        .modal-header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .btn-large {
+            background: #bb86fc;
+        }
+        .btn-large:hover {
+            background: #9e79d6;
+        }
+        footer {
+            background: #1f1f1f;
+            padding: 20px 0;
+            color: #e0e0e0;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        .card-title {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+        .social-icons i {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #e0e0e0;
+            transition: color 0.3s;
+        }
+        .social-icons i:hover {
+            color: #bb86fc;
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper navbar-size">
-            <a href="#" class="brand-logo"><img class="user-image-size" src="images/user.png" alt="User Image" /></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a target="_blank" href="https://www.linkedin.com/in/saketh-raja-ram-8a48671a9/">LinkedIn</a></li>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><img src="images/AVASAlogo.png" alt="Logo"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down social-icons">
+                <li><a href="https://www.linkedin.com/in/saketh-raja-ram-8a48671a9/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/sakethrajaram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="mailto:saakethau@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
             </ul>
         </div>
     </nav>
-    <main class="main-body">
+    <main>
         <div class="container">
-            <div class="row">
-                <div class="col s12 center-align">
-                    <h1 id="heading">Welcome to SIT 725 Week 3</h1>
-                    <p class="flow-text">This is a demo application that tries to use a few components from materialize and through this practical we try to have some fun with Materialize and its components</p>
+            <div class="header">
+                <h1>Welcome to Saaketh's Phone Exhibition</h1>
+                <p>Discover the latest phone models and get in touch for inquiries about your preferred devices.</p>
+            </div>
+            <div class="row center">
+                <div class="col s12">
+                    <img src="images/iphone1.jpg" alt="Phone Exhibition" class="responsive-img">
                 </div>
-                <div class="col s12 center-align">
-                    <img class="materialboxed materialboxed-image" src="images/livedemo.png" alt="Live Demo">
-                </div>
-                <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click Me</a>
+                <div class="col s12">
+                    <a class="btn-large waves-effect waves-light modal-trigger" href="#modal1">
+                        <i class="material-icons left">info</i>Inquire Now
+                    </a>
                 </div>
             </div>
-            <div class="row" id="card-section">
-                <div class="col s4 center-align">
-                    <div class="card medium">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="images/kitten1.jpeg" alt="Kitten">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/iphone15.png" alt="Phone 1">
+                            <span class="card-title">iPhone 15</span>
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Kitten<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">About kitten</a></p>
+                            <p><a href="#">Learn more</a></p>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Kitten<i class="material-icons right">close</i></span>
-                            <p class="card-text">Hello There! I just wanted to say HI to you guys. See ya!</p>
+                            <span class="card-title">Phone 1<i class="material-icons right">close</i></span>
+                            <p>Explore the features and specifications of Phone 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/samsungs24ultra.png" alt="Phone 2">
+                            <span class="card-title">Samsung S24 Ultra</span>
+                        </div>
+                        <div class="card-content">
+                            <p><a href="#">Learn more</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title">Phone 2<i class="material-icons right">close</i></span>
+                            <p>Discover the cutting-edge technology of Phone 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="images/iphone15promax.png" alt="Phone 3">
+                            <span class="card-title">iPhone 15 Pro Max</span>
+                        </div>
+                        <div class="card-content">
+                            <p><a href="#">Learn more</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title">Phone 3<i class="material-icons right">close</i></span>
+                            <p>Get to know the features of Phone 3.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Modal Structure -->
-        <div id="modal1" class="modal modal-fixed-footer">
-            <div class="row modal-content">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4 class="modal-header">Inquire About a Phone</h4>
+                <form>
+                    <div class="input-field">
+                        <input type="text" id="first_name" class="validate">
+                        <label for="first_name">First Name</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
+                    <div class="input-field">
+                        <input type="text" id="last_name" class="validate">
+                        <label for="last_name">Last Name</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
+                    <div class="input-field">
+                        <input type="text" id="phone_model" class="validate">
+                        <label for="phone_model">Phone Model</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 center-align">
-                            <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
-                        </div>
+                    <div class="input-field">
+                        <input type="email" id="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field center">
+                        <button type="button" class="btn-large waves-effect waves-light" id="formSubmit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Saaketh's Phone Exhibition - All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.
