@@ -14,8 +14,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -92,25 +90,14 @@
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
         }
-        .social-icons i {
-            font-size: 24px;
-            margin: 0 10px;
-            color: #e0e0e0;
-            transition: color 0.3s;
-        }
-        .social-icons i:hover {
-            color: #bb86fc;
-        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo"><img src="images/AVASAlogo.png" alt="Logo"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down social-icons">
-                <li><a href="https://www.linkedin.com/in/saketh-raja-ram-8a48671a9/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://www.instagram.com/sakethrajaram" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="mailto:saakethau@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="https://www.linkedin.com/in/saketh-raja-ram-8a48671a9/" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
     </nav>
@@ -118,6 +105,7 @@
         <div class="container">
             <div class="header">
                 <h1>Welcome to Saaketh's Phone Exhibition</h1>
+                <p>TREND STARTS HERE</p>
                 <p>Discover the latest phone models and get in touch for inquiries about your preferred devices.</p>
             </div>
             <div class="row center">
@@ -134,7 +122,7 @@
                 <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="images/iphone15.png" alt="Phone 1">
+                            <img src="images/iphone15.png" alt="iPhone 15">
                             <span class="card-title">iPhone 15</span>
                         </div>
                         <div class="card-content">
@@ -168,7 +156,7 @@
                             <span class="card-title">iPhone 15 Pro Max</span>
                         </div>
                         <div class="card-content">
-                            <p><a href="#">Learn more</a></p>
+                            <p><a href="#">Learn more about Phone 3</a></p>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title">Phone 3<i class="material-icons right">close</i></span>
@@ -182,34 +170,75 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4 class="modal-header">Inquire About a Phone</h4>
-                <form>
+                <form id="inquiry-form">
                     <div class="input-field">
-                        <input type="text" id="first_name" class="validate">
+                        <input type="text" id="first_name" name="first_name" class="validate" required>
                         <label for="first_name">First Name</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" id="last_name" class="validate">
+                        <input type="text" id="last_name" name="last_name" class="validate" required>
                         <label for="last_name">Last Name</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" id="phone_model" class="validate">
-                        <label for="phone_model">Phone Model</label>
+                        <select id="phone_model" name="phone_model" required>
+                            <option value="" disabled selected>Choose your phone model</option>
+                            <option value="iphone15">iPhone 15</option>
+                            <option value="samsungS24Ultra">Samsung S24 Ultra</option>
+                            <option value="iphone15ProMax">iPhone 15 Pro Max</option>
+                        </select>
+                        <label>Phone Model</label>
                     </div>
                     <div class="input-field">
-                        <input type="email" id="email" class="validate">
+                        <input type="email" id="email" name="email" class="validate" required>
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field center">
-                        <button type="button" class="btn-large waves-effect waves-light" id="formSubmit">Submit</button>
+                        <button type="submit" class="btn-large waves-effect waves-light">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Saaketh's Phone Exhibition - All Rights Reserved.</p>
-        </div>
-    </footer>
+
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+    <script>
+    // Initialize the select element and modal
+    $(document).ready(function(){
+    $('select').formSelect();
+    $('.modal').modal();
+    });
+
+    // Handle form submission
+    $('#inquiry-form').on('submit', function(event) {
+        event.preventDefault();
+
+        const formData = {
+            first_name: $('#first_name').val(),
+            last_name: $('#last_name').val(),
+            phone_model: $('#phone_model').val(),
+            email: $('#email').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/submit-inquiry',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function(response) {
+                M.toast({html: 'Inquiry submitted successfully!'});
+                $('#inquiry-form')[0].reset();
+                $('#modal1').modal('close');
+            },
+            error: function(error) {
+                M.toast({html: 'There was an error submitting your inquiry. Please try again.'});
+            }
+        });
+    });
+    </script>
+</body>
+</html>
